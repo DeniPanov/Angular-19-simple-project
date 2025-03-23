@@ -1,18 +1,14 @@
 <app-header />
 
 <main>
-  <ul id="users">
+  <ul *ngFor="let user of users">
     <li>
-      <app-user [avatar]="users[0].avatar" [name]="users[0].name" />
-    </li>
-    <li>
-      <app-user [avatar]="users[1].avatar" [name]="users[1].name" />
-    </li>
-    <li>
-      <app-user [avatar]="users[2].avatar" [name]="users[0].name" />
-    </li>
-    <li>
-      <app-user [avatar]="users[3].avatar" [name]="users[0].name" />
+      <app-user
+        [id]="user.id"
+        [avatar]="user.avatar"
+        [name]="user.name"
+        (select)="onSelectUser(user.id)"
+      />
     </li>
   </ul>
 </main>
